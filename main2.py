@@ -66,7 +66,11 @@ try:
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
           request = requests.get(api_url, request_headers).json()
+          
+          image = Image.new('1', (epd.width, epd.height), 255)   # 255: clear the frame
+          draw = ImageDraw.Draw(image)
           draw.text((8, 12), 'hello world', font = medium_font, fill = 255)
+          
           refresh_display = time.monotonic()
 
       gfx.update_time()
