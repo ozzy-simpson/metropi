@@ -30,38 +30,65 @@ class Metro_Graphics:
 
     def display_metro(self, metro_status):
      
-          destination_name = metro_status[0]['DestinationName']
-          if destination_name == "Franconia-Springfield":
-            destination_name = "Franc-Sprngfld"
-          elif destination_name == "Largo Town Center":
-            destination_name = "Largo Town Ctr"
-          elif destination_name == "Vienna/Fairfax-GMU":
-            destination_name = "Vienna/Frfx"
-          elif destination_name == "Wiehle-Reston East":
-            destination_name = "Wiehle-Rstn E"
-          self._destination_name = destination_name
-          print('Destination: ' + destination_name)
+          destination1_name = metro_status[0]['DestinationName']
+          if destination1_name == "Franconia-Springfield":
+            destination1_name = "Franc-Sprngfld"
+          elif destination1_name == "Largo Town Center":
+            destination1_name = "Largo Town Ctr"
+          elif destination1_name == "Vienna/Fairfax-GMU":
+            destination1_name = "Vienna/Frfx"
+          elif destination1_name == "Wiehle-Reston East":
+            destination1_name = "Wiehle-Rstn E"
+          self._destination1_name = destination1_name
+          print('Destination: ' + destination1_name)
 
-          location_name = metro_status[0]['LocationName']
-          self._location_name = location_name
-          print('Current Location: ' + location_name)
+          location1_name = metro_status[0]['LocationName']
+          self.location1_name = location1_name
+          print('Current Location: ' + location1_name)
 
           line = metro_status[0]['Line']
           self._line = line
           print('Line: ' + line)
 
-          arrival_minutes = metro_status[0]['Min']
-          if arrival_minutes.isdigit():
-              has_arrived = False
-              progress = self.display.width / int(arrival_minutes)
-              arrival_minutes = arrival_minutes + 'min'
-              self._progress = progress
+          arrival1_minutes = metro_status[0]['Min']
+          if arrival1_minutes.isdigit():
+              has1_arrived = False
+              arrival1_minutes = arrival1_minutes + 'min'
           else:
-              has_arrived = True
+              has1_arrived = True
 
-          self._has_arrived = has_arrived
-          self._arrival_minutes = arrival_minutes
-          print('Arrival Status: ' + arrival_minutes)
+          self._has1_arrived = has1_arrived
+          self._arrival1_minutes = arrival1_minutes
+          print('Arrival Status: ' + arrival1_minutes)
+        
+        
+     
+          destination2_name = metro_status[1]['DestinationName']
+          if destination2_name == "Franconia-Springfield":
+            destination2_name = "Franc-Sprngfld"
+          elif destination2_name == "Largo Town Center":
+            destination2_name = "Largo Town Ctr"
+          elif destination2_name == "Vienna/Fairfax-GMU":
+            destination2_name = "Vienna/Frfx"
+          elif destination2_name == "Wiehle-Reston East":
+            destination2_name = "Wiehle-Rstn E"
+          self._destination2_name = destination2_name
+          print('Destination: ' + destination2_name)
+
+          location2_name = metro_status[1]['LocationName']
+          self.location2_name = location2_name
+          print('Current Location: ' + location2_name)
+
+          arrival2_minutes = metro_status[0]['Min']
+          if arrival2_minutes.isdigit():
+              has2_arrived = False
+              arrival2_minutes = arrival2_minutes + 'min'
+          else:
+              has2_arrived = True
+
+          self._has2_arrived = has2_arrived
+          self._arrival2_minutes = arrival2_minutes
+          print('Arrival Status: ' + arrival2_minutes)
 
           self.update_time()
           self.update_display()
@@ -94,41 +121,53 @@ class Metro_Graphics:
         )
 
         # Draw the destination
-        (font_width, font_height) = medium_font.getsize(self._destination_name)
+        (font_width, font_height) = medium_font.getsize(self._destination1_name)
         draw.text(
             (5, self.display.width - font_height * 4 + 1),
-            self._destination_name,
+            self._destination1_name,
             font=self.medium_font,
             fill=BLACK,
         )
         
         # Draw line break
-        draw.line([(0, self.display.height / 2), (self.display.width, self.display.height / 2)], BLACK, 1) 
+        # draw.line([(0, self.display.height / 2), (self.display.width, self.display.height / 2)], BLACK, 1) 
          
         # Draw the arrival time
-        (font_width, font_height) = large_font.getsize(self._arrival_minutes)
+        (font_width, font_height) = large_font.getsize(self._arrival1_minutes)
         draw.text(
             (
                 self.display.height - font_width - 5,
                 self.display.width - font_height * 4,
             ),
-            self._arrival_minutes,
+            self._arrival1_minutes,
             font=self.large_font,
             fill=BLACK,
         )
 
-        # Draw progress
-        if not self._has_arrived:
-            box_width = self.display.width / 10
-            box_height = self.display.width / 10
-            i = 0
-            for i in range(10):
-                x0 = box_width * i + 1
-                y0 = self.display.height - (self.display.height / 4)
-                x1 = (box_width * 2) * i
-                y1 = (self.display.height - (self.display.height / 4)) + box_height
-                # draw.rounded_rectangle([(x0, y0), (x1, y1)], 2, BLACK, BLACK, 30)
-            self._progress = self._progress * 2
+        # Draw the destination
+        (font_width, font_height) = medium_font.getsize(self._destination2_name)
+        draw.text(
+            (5, self.display.width - font_height * 2 + 1),
+            self._destination2_name,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        
+        # Draw line break
+        # draw.line([(0, self.display.height / 2), (self.display.width, self.display.height / 2)], BLACK, 1) 
+         
+        # Draw the arrival time
+        (font_width, font_height) = large_font.getsize(self._arrival2_minutes)
+        draw.text(
+            (
+                self.display.height - font_width - 5,
+                self.display.width - font_height * 2,
+            ),
+            self._arrival2_minutes,
+            font=self.large_font,
+            fill=BLACK,
+        )
+
        
         self.display.displayPartBaseImage(self.display.getbuffer(image))
         self.display.init(self.display.FULL_UPDATE)
