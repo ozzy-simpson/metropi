@@ -10,6 +10,7 @@ from TP_lib import epd2in13_V2
 from dotenv import load_dotenv
 import time
 import logging
+import requests
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 import threading
