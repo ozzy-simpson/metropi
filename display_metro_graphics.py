@@ -1,5 +1,6 @@
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
+import json
 
 small_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttf", 16)
 medium_font = ImageFont.truetype("fonts/DejaVuSans.ttf", 20)
@@ -29,8 +30,8 @@ class Metro_Graphics:
 
     def display_metro(self, metro_status):
      
-        if len(metro_status['Trains']) > 0:
-          destination_name = metro_status['Trains'][0]['DestinationName']
+        #if len(metro_status['Trains']) > 0:
+          destination_name = metro_status[0]['DestinationName']
           if destination_name == "Franconia-Springfield":
             destination_name = "Franc-Sprngfld"
           elif destination_name == "Largo Town Center":
@@ -42,15 +43,15 @@ class Metro_Graphics:
           self._destination_name = destination_name
           print('Destination: ' + destination_name)
 
-          location_name = metro_status['Trains'][0]['LocationName']
+          location_name = metro_status[0]['LocationName']
           self._location_name = location_name
           print('Current Location: ' + location_name)
 
-          line = metro_status['Trains'][0]['Line']
+          line = metro_status[0]['Line']
           self._line = line
           print('Line: ' + line)
 
-          arrival_minutes = metro_status['Trains'][0]['Min']
+          arrival_minutes = metro_status[0]['Min']
           if arrival_minutes.isdigit():
               has_arrived = False
               progress = self.display.width / int(arrival_minutes)
@@ -62,8 +63,8 @@ class Metro_Graphics:
           self._has_arrived = has_arrived
           self._arrival_minutes = arrival_minutes
           print('Arrival Status: ' + arrival_minutes)
-        else:
-            self._destination_name = 'No Trains'
+        #else:
+            #self._destination_name = 'No Trains'
 
         self.update_time()
         self.update_display()
