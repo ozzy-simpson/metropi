@@ -80,7 +80,7 @@ try:
 
     request_headers = {'api_key': api_key}
     refresh_display = None
-    gfx = Metro_Graphics(edp)
+    gfx = Metro_Graphics(epd)
     
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
