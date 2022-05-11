@@ -1,14 +1,9 @@
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
-from adafruit_epd.epd import Adafruit_EPD
 
-small_font = ImageFont.truetype(
-    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16
-)
-medium_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
-large_font = ImageFont.truetype(
-    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 24
-)
+small_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttf", 16)
+medium_font = ImageFont.truetype("fonts/DejaVuSans.ttf", 20)
+large_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttf", 24)
 
 # RGB Colors
 WHITE = (255, 255, 255)
@@ -70,8 +65,8 @@ class Metro_Graphics:
         self._time_text = now.strftime("%I:%M %p").lstrip("0").replace(" 0", " ")
 
     def update_display(self):
-        self.display.fill(Adafruit_EPD.WHITE)
         image = Image.new("RGB", (self.display.width, self.display.height), color=WHITE)
+        image = image.transpose(Image.ROTATE_270) 
         draw = ImageDraw.Draw(image)
 
         # Draw the time
