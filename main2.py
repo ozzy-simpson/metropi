@@ -83,7 +83,7 @@ try:
           curr_line += 1
           refresh_count += 20
 
-      time.sleep(60)
+      time.sleep(20)
                 
 except IOError as e:
     logging.info(e)
