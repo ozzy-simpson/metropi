@@ -66,8 +66,8 @@ class Metro_Graphics:
         #else:
             #self._destination_name = 'No Trains'
 
-        self.update_time()
-        self.update_display()
+          self.update_time()
+          self.update_display()
 
     def update_time(self):
         now = datetime.now()
