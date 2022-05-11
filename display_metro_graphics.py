@@ -129,7 +129,7 @@ class Metro_Graphics:
                 y0 = self.display.height - (self.display.height / 4)
                 x1 = (box_width * 2) * i
                 y1 = (self.display.height - (self.display.height / 4)) + box_height
-                draw.rounded_rectangle([(x0, y0), (x1, y1)], 2, BLACK, BLACK, 30)
+                # draw.rounded_rectangle([(x0, y0), (x1, y1)], 2, BLACK, BLACK, 30)
             self._progress = self._progress * 2
        
         self.display.displayPartBaseImage(self.display.getbuffer(image))
