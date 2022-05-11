@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
+fontdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
 libdir = 'lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
@@ -15,9 +16,9 @@ from PIL import Image,ImageDraw,ImageFont
 import traceback
 import threading
 
-small_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttc", 16)
-medium_font = ImageFont.truetype("fonts/DejaVuSans.ttc", 20)
-large_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttc", 24)
+small_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 16)
+medium_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans.ttc'), 20)
+large_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 24)
 
 logging.basicConfig(level=logging.DEBUG)
 flag_t = 1
@@ -70,6 +71,8 @@ try:
           image = Image.new('1', (epd.width, epd.height), 255)   # 255: clear the frame
           draw = ImageDraw.Draw(image)
           draw.text((8, 12), 'hello world', font = medium_font, fill = 255)
+            
+          epd.displayPartBaseImage(epd.getbuffer(image))
           
           refresh_display = time.monotonic()
 
