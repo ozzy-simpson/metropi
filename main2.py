@@ -65,7 +65,7 @@ try:
     
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
-          request = requests.get(api_url, request_headers).json()
+          #request = requests.get(api_url, request_headers).json()
           
           image = Image.new('1', (epd.width, epd.height), 255)   # 255: clear the frame
           draw = ImageDraw.Draw(image)
