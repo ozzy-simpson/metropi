@@ -97,7 +97,7 @@ try:
           
           #image = image.transpose(Image.ROTATE_90) 
             
-          epd.displayPartBaseImage(image)
+          epd.displayPartBaseImage(epd.getbuffer(image))
           #epd.init(epd.PART_UPDATE)
           
           refresh_display = time.monotonic()
