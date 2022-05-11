@@ -19,7 +19,7 @@ busy = digitalio.DigitalInOut(board.D17)
 
 ## Station code can be set to 'All' to get all the stations or 
 ## a specific station code such as B03
-station_code = 'B03'
+station_code = 'C04'
 
 api_key = os.getenv('METRO_API_KEY')
 api_url = 'https://api.wmata.com/StationPrediction.svc/json/GetPrediction/{}'.format(station_code)
