@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-fontdir = 'fonts'
 libdir = 'lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
@@ -18,16 +17,6 @@ import traceback
 import threading
 from display_metro_graphics import Metro_Graphics
 
-small_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 16)
-medium_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans.ttc'), 20)
-large_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 24)
-
-font15 = ImageFont.truetype(os.path.join(fontdir, 'Font.ttc'), 15)
-font24 = ImageFont.truetype(os.path.join(fontdir, 'Font.ttc'), 24)
-
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-
 logging.basicConfig(level=logging.DEBUG)
 flag_t = 1
 
@@ -42,15 +31,6 @@ def pthread_irq() :
         else :
             GT_Dev.Touch = 0
     print("thread:exit")
-    
-    
-def update_time():
-    now = datetime.now()
-    time_text = now.strftime("%I:%M %p").lstrip("0").replace(" 0", " ")
-    
-    return time_text
-
-time_text = update_time()
 
 try:
     logging.info("MetroPi Demo")
@@ -83,14 +63,14 @@ try:
     gfx = Metro_Graphics(epd)
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
           request = requests.get(api_url, request_headers).json()
             
           gfx.display_metro(request)
           
           refresh_display = time.monotonic()
 
-      time.sleep(10)
+      time.sleep(60)
                 
 except IOError as e:
     logging.info(e)
