@@ -92,7 +92,7 @@ try:
             
           (font_width, font_height) = medium_font.getsize(time_text)
           draw.text(
-            (5, epd.height - font_height - 5),
+            (5, epd.width - font_width - 5),
             time_text,
             font=medium_font,
             fill=BLACK,
