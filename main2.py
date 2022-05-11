@@ -65,7 +65,7 @@ try:
     curr_line = "BL"
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
           request = requests.get(api_url, request_headers).json()['Trains']
           filtered_request = [x for x in request if x['Line'] == curr_line]
             
@@ -73,7 +73,7 @@ try:
           
           refresh_display = time.monotonic()
 
-      time.sleep(60)
+      time.sleep(10)
                 
 except IOError as e:
     logging.info(e)
