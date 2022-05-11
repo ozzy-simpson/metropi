@@ -86,7 +86,7 @@ try:
             
           image = Image.new("RGB", (epd.width, epd.height), color=WHITE)
           
-          image = image.transpose(Image.ROTATE_90) 
+          image = image.transpose(Image.ROTATE_270) 
           draw = ImageDraw.Draw(image)
             
           (font_width, font_height) = medium_font.getsize(time_text)
