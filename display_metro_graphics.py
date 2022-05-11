@@ -124,5 +124,5 @@ class Metro_Graphics:
                 # draw.rounded_rectangle([(x0, y0), (x1, y1)], 2, BLACK, BLACK, 30)
             self._progress = self._progress * 2
        
-        self.display.image(image)
-        self.display.display()
+        self.display.displayPartBaseImage(self.display.getbuffer(image))
+        self.display.init(self.display.FULL_UPDATE)
