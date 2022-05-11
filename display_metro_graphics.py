@@ -33,6 +33,8 @@ class Metro_Graphics:
           destination_name = metro_status['Trains'][0]['DestinationName']
           if destination_name == "Franconia-Springfield":
             destination_name = "Franc-Sprngfld"
+          elif destination_name == "Largo Town Center":
+            destination_name = "Largo Town Ctr"
           self._destination_name = destination_name
           print('Destination: ' + destination_name)
 
@@ -105,8 +107,8 @@ class Metro_Graphics:
         (font_width, font_height) = large_font.getsize(self._arrival_minutes)
         draw.text(
             (
-                self.display.width - font_width - 5,
-                self.display.height - font_height * 4,
+                self.display.height - font_width - 5,
+                self.display.width - font_height * 4,
             ),
             self._arrival_minutes,
             font=self.large_font,
