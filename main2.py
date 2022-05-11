@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-fontdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts')
+fontdir = 'fonts'
 libdir = 'lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
@@ -19,6 +19,9 @@ import threading
 small_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 16)
 medium_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans.ttc'), 20)
 large_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 24)
+
+font15 = ImageFont.truetype(os.path.join(fontdir, 'Font.ttc'), 15)
+font24 = ImageFont.truetype(os.path.join(fontdir, 'Font.ttc'), 24)
 
 logging.basicConfig(level=logging.DEBUG)
 flag_t = 1
