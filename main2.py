@@ -72,7 +72,7 @@ try:
           draw = ImageDraw.Draw(image)
           draw.text((8, 12), 'hello world', font = medium_font, fill = 255)
             
-          epd.displayPartBaseImage(epd.getbuffer(image))
+          epd.displayPartial(epd.getbuffer(image))
           
           refresh_display = time.monotonic()
 
