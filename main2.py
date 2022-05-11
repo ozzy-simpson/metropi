@@ -81,7 +81,7 @@ try:
     refresh_display = None
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
           #request = requests.get(api_url, request_headers).json()
             
           image = Image.new("RGB", (epd.width, epd.height), color=WHITE)
@@ -102,7 +102,7 @@ try:
           
           refresh_display = time.monotonic()
 
-      time.sleep(60)
+      time.sleep(10)
                 
 except IOError as e:
     logging.info(e)
