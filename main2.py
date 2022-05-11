@@ -73,7 +73,6 @@ try:
           
           refresh_display = time.monotonic()
 
-      gfx.update_time()
       time.sleep(60)
                 
 except IOError as e:
