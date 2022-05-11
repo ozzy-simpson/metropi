@@ -69,7 +69,7 @@ try:
     request = requests.get(api_url, request_headers).json()['Trains']
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 20:
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
           if refresh_count > 60:
             request = requests.get(api_url, request_headers).json()['Trains']
             refresh_count = 0
@@ -82,7 +82,7 @@ try:
           
           refresh_display = time.monotonic()
           curr_line += 1
-          refresh_count += 20
+          refresh_count += 10
 
       time.sleep(20)
                 
