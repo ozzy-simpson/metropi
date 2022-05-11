@@ -72,10 +72,10 @@ try:
           #request = requests.get(api_url, request_headers).json()
           
           image = Image.new('1', (epd.width, epd.height), 255)   # 255: clear the frame
+          image.transpose(Image.ROTATE_90) 
           draw = ImageDraw.Draw(image)
           draw.text((8, 12), 'hello world', font = medium_font, fill = 0)
             
-          image.transpose(Image.ROTATE_90) 
           epd.displayPartial(epd.getbuffer(image))
           epd.init(epd.PART_UPDATE)
           
