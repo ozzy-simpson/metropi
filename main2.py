@@ -60,20 +60,30 @@ try:
 
     request_headers = {'api_key': api_key}
     refresh_display = None
+    refresh_display_2 = None
+    refresh_count = 0
     gfx = Metro_Graphics(epd)
     
-    curr_line = "BL"
+    curr_line = 0
+    lines = ["BL", "OR", "SV"]
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
-          request = requests.get(api_url, request_headers).json()['Trains']
-          filtered_request = [x for x in request if x['Line'] == curr_line]
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 20:
+          if refresh_count > 60:
+            request = requests.get(api_url, request_headers).json()['Trains']
+            refresh_count = 0
+          
+          if curr_line > 2:
+            curr_line = 0
+          filtered_request = [x for x in request if x['Line'] == lines[curr_line]
             
           gfx.display_metro(filtered_request)
           
           refresh_display = time.monotonic()
+          curr_line += 1
+          refresh_count += 20
 
-      time.sleep(10)
+      time.sleep(60)
                 
 except IOError as e:
     logging.info(e)
