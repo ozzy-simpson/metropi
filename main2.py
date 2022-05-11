@@ -87,7 +87,7 @@ try:
           image = Image.new("RGB", (epd.width, epd.height), color=WHITE)
           draw = ImageDraw.Draw(image)
             
-          (font_width, font_height) = medium_font.getsize(update_time)
+          (font_width, font_height) = medium_font.getsize(time_text)
           draw.text(
             (epd.width - font_width - 5, 5),
             time_text,
