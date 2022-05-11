@@ -36,7 +36,7 @@ class Metro_Graphics:
           elif destination_name == "Largo Town Center":
             destination_name = "Largo Town Ctr"
           elif destination_name == "Vienna/Fairfax-GMU":
-            destination_name = "Vienna/Frfx-GMU"
+            destination_name = "Vienna/Frfx"
           self._destination_name = destination_name
           print('Destination: ' + destination_name)
 
