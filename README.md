@@ -11,7 +11,7 @@ The display shows the following information:
 
 ## Installation
 * Create API access token on the [WMATA developer site](https://developer.wmata.com/)
-* Clone the repository on your Raspberry Pi with the following `git clone https://github.com/ryanwa18/metropi.git`
+* Clone the repository on your Raspberry Pi with the following `git clone https://github.com/ozzy-simpson/metropi.git`
 * Change into the working directory of the cloned repository `cd metropi`
 * Create a virtual environment to work in `python3 -m venv .`
 * Activate the virtual environment `source bin/activate`
