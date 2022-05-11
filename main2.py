@@ -95,7 +95,7 @@ try:
             fill=BLACK,
           )
           
-          #image = image.transpose(Image.ROTATE_180) 
+          #image = image.transpose(Image.ROTATE_90) 
             
           epd.displayPartial(epd.getbuffer(image))
           epd.init(epd.PART_UPDATE)
