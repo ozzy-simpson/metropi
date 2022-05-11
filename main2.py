@@ -79,28 +79,13 @@ try:
 
     request_headers = {'api_key': api_key}
     refresh_display = None
+    gfx = Metro_Graphics(edp)
     
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
-          #request = requests.get(api_url, request_headers).json()
+          request = requests.get(api_url, request_headers).json()
             
-          image = Image.new("RGB", (epd.width, epd.height), color=WHITE)
-          
-          image = image.transpose(Image.ROTATE_270) 
-          image = image.transpose(Image.ROTATE_180) 
-          draw = ImageDraw.Draw(image)
-        
-            
-          (font_width, font_height) = medium_font.getsize(time_text)
-          draw.text(
-            (epd.height - font_width, 0),
-            time_text,
-            font=medium_font,
-            fill=BLACK,
-          )
-            
-          epd.displayPartBaseImage(epd.getbuffer(image))
-          epd.init(epd.FULL_UPDATE)
+          gfx.display_metro(request)
           
           refresh_display = time.monotonic()
 
