@@ -91,7 +91,7 @@ try:
           draw.text(
             (epd.width - font_width - 5, 5),
             time_text,
-            font=medium_font,
+            font=font,
             fill=BLACK,
           )
           
