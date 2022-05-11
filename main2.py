@@ -29,8 +29,6 @@ BLACK = (0, 0, 0)
 logging.basicConfig(level=logging.DEBUG)
 flag_t = 1
 
-time_text = update_time()
-
 ## Load the env variable 
 load_dotenv()
 
@@ -49,6 +47,8 @@ def update_time():
     time_text = now.strftime("%I:%M %p").lstrip("0").replace(" 0", " ")
     
     return time_text
+
+time_text = update_time()
 
 try:
     logging.info("MetroPi Demo")
