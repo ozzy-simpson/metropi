@@ -31,12 +31,12 @@ class Metro_Graphics:
      
         if len(metro_status['Trains']) > 0:
           destination_name = metro_status['Trains'][0]['DestinationName']
+          if destination_name == "Franconia-Springfield":
+            destination_name = "Franc-Sprngfld"
           self._destination_name = destination_name
           print('Destination: ' + destination_name)
 
           location_name = metro_status['Trains'][0]['LocationName']
-          if location_name == "Franconia-Springfield":
-            location_name = "Franc-Sprngfld"
           self._location_name = location_name
           print('Current Location: ' + location_name)
 
