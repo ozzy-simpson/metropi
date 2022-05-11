@@ -7,6 +7,7 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 from TP_lib import gt1151
 from TP_lib import epd2in13_V2
+from dotenv import load_dotenv
 import time
 import logging
 from PIL import Image,ImageDraw,ImageFont
