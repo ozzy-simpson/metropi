@@ -105,7 +105,7 @@ class Metro_Graphics:
         # Draw the time
         (font_width, font_height) = medium_font.getsize(self._time_text)
         draw.text(
-            (self.display.height - font_width - 5, 6),
+            (self.display.height - font_width - 5, 7),
             self._time_text,
             font=self.medium_font,
             fill=BLACK,
@@ -123,7 +123,7 @@ class Metro_Graphics:
         # Draw the destination
         (font_width, font_height) = medium_font.getsize(self._destination1_name)
         draw.text(
-            (5, self.display.width - font_height * 4 + 1),
+            (5, self.display.width - font_height * 4 + 2),
             self._destination1_name,
             font=self.medium_font,
             fill=BLACK,
@@ -147,7 +147,7 @@ class Metro_Graphics:
         # Draw the destination
         (font_width, font_height) = medium_font.getsize(self._destination2_name)
         draw.text(
-            (5, self.display.width - font_height * 2 + 1),
+            (5, self.display.width - font_height * 2 + 2),
             self._destination2_name,
             font=self.medium_font,
             fill=BLACK,
