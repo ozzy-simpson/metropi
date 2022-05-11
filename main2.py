@@ -2,6 +2,9 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
+libdir = 'lib'
+if os.path.exists(libdir):
+    sys.path.append(libdir)
 from TP_lib import gt1151
 from TP_lib import epd2in13_V2
 import time
