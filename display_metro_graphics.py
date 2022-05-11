@@ -78,7 +78,7 @@ class Metro_Graphics:
         # Draw the time
         (font_width, font_height) = medium_font.getsize(self._time_text)
         draw.text(
-            (self.display.height - font_width - 5, 5),
+            (self.display.height - font_width - 5, 6),
             self._time_text,
             font=self.medium_font,
             fill=BLACK,
@@ -96,7 +96,7 @@ class Metro_Graphics:
         # Draw the destination
         (font_width, font_height) = medium_font.getsize(self._destination_name)
         draw.text(
-            (5, self.display.width - font_height * 4),
+            (5, self.display.width - font_height * 4 + 1),
             self._destination_name,
             font=self.medium_font,
             fill=BLACK,
