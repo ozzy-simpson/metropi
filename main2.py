@@ -62,11 +62,13 @@ try:
     refresh_display = None
     gfx = Metro_Graphics(epd)
     
+    curr_line = "BL"
+    
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
           request = requests.get(api_url, request_headers).json()
             
-          gfx.display_metro(request)
+          gfx.display_metro(request, curr_line)
           
           refresh_display = time.monotonic()
 
