@@ -73,6 +73,7 @@ try:
           draw.text((8, 12), 'hello world', font = medium_font, fill = 255)
             
           epd.displayPartial(epd.getbuffer(image))
+          epd.init(epd.PART_UPDATE)
           
           refresh_display = time.monotonic()
 
