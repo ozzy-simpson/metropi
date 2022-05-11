@@ -85,6 +85,8 @@ try:
           #request = requests.get(api_url, request_headers).json()
             
           image = Image.new("RGB", (epd.width, epd.height), color=WHITE)
+          
+          image = image.transpose(Image.ROTATE_90) 
           draw = ImageDraw.Draw(image)
             
           (font_width, font_height) = medium_font.getsize(time_text)
@@ -94,8 +96,6 @@ try:
             font=font15,
             fill=BLACK,
           )
-          
-          image = image.transpose(Image.ROTATE_90) 
             
           epd.displayPartBaseImage(epd.getbuffer(image))
           epd.init(epd.FULL_UPDATE)
