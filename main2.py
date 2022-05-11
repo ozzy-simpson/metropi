@@ -66,6 +66,7 @@ try:
     
     curr_line = 0
     lines = ["BL", "OR", "SV"]
+    request = requests.get(api_url, request_headers).json()['Trains']
     
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 20:
