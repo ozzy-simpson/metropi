@@ -69,7 +69,7 @@ try:
           request = requests.get(api_url, request_headers).json()['Trains']
           filtered_request = [x for x in request if x['Line'] == curr_line]
             
-          gfx.display_metro(request, curr_line)
+          gfx.display_metro(request)
           
           refresh_display = time.monotonic()
 
