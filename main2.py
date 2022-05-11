@@ -23,8 +23,13 @@ large_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 24
 font15 = ImageFont.truetype(os.path.join(fontdir, 'Font.ttc'), 15)
 font24 = ImageFont.truetype(os.path.join(fontdir, 'Font.ttc'), 24)
 
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+
 logging.basicConfig(level=logging.DEBUG)
 flag_t = 1
+
+time_text = update_time()
 
 ## Load the env variable 
 load_dotenv()
@@ -37,6 +42,13 @@ def pthread_irq() :
         else :
             GT_Dev.Touch = 0
     print("thread:exit")
+    
+    
+def update_time():
+    now = datetime.now()
+    time_text = now.strftime("%I:%M %p").lstrip("0").replace(" 0", " ")
+    
+    return time_text
 
 try:
     logging.info("MetroPi Demo")
@@ -70,10 +82,18 @@ try:
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
           #request = requests.get(api_url, request_headers).json()
-          
-          image = Image.new('1', (epd.width, epd.height), 255)   # 255: clear the frame
+            
+          image = Image.new("RGB", (epd.width, epd.height), color=WHITE)
           draw = ImageDraw.Draw(image)
-          draw.text((8, 12), 'hello world', font = medium_font, fill = 0)
+            
+          (font_width, font_height) = medium_font.getsize(update_time)
+          draw.text(
+            (epd.width - font_width - 5, 5),
+            time_text,
+            font=medium_font,
+            fill=BLACK,
+          )
+          
           image = image.transpose(Image.ROTATE_180) 
             
           epd.displayPartial(epd.getbuffer(image))
