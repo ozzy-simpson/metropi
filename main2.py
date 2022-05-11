@@ -75,7 +75,7 @@ try:
           
           if curr_line > 2:
             curr_line = 0
-          filtered_request = [x for x in request if x['Line'] == lines[curr_line]
+          filtered_request = [x for x in request if x['Line'] == lines[curr_line]]
             
           gfx.display_metro(filtered_request)
           
