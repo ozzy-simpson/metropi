@@ -10,6 +10,7 @@ from TP_lib import gt1151
 from TP_lib import epd2in13_V2
 from dotenv import load_dotenv
 import time
+from datetime import datetime
 import logging
 import requests
 from PIL import Image,ImageDraw,ImageFont
