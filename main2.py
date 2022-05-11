@@ -16,6 +16,7 @@ import requests
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 import threading
+from display_metro_graphics import Metro_Graphics
 
 small_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans-Bold.ttc'), 16)
 medium_font = ImageFont.truetype(os.path.join(fontdir, 'DejaVuSans.ttc'), 20)
