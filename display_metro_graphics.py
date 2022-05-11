@@ -79,7 +79,7 @@ class Metro_Graphics:
           self.location2_name = location2_name
           print('Current Location: ' + location2_name)
 
-          arrival2_minutes = metro_status[0]['Min']
+          arrival2_minutes = metro_status[1]['Min']
           if arrival2_minutes.isdigit():
               has2_arrived = False
               arrival2_minutes = arrival2_minutes + 'min'
