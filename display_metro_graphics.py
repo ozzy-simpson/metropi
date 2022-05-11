@@ -35,6 +35,8 @@ class Metro_Graphics:
           print('Destination: ' + destination_name)
 
           location_name = metro_status['Trains'][0]['LocationName']
+          if location_name == "Franconia-Springfield":
+            location_name = "Franc-Sprngfld"
           self._location_name = location_name
           print('Current Location: ' + location_name)
 
