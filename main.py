@@ -63,6 +63,7 @@ try:
     gfx = Metro_Graphics(epd)
     
     request = requests.get(api_url, request_headers).json()
+    gfx.display_metro(request)
     
     while True:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
