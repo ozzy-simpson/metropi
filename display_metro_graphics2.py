@@ -21,6 +21,9 @@ class Metro_Graphics:
 
         self.display = display
         
+        self._line = []
+        self._dest = []
+        self._min = []
         for i in range(show):
             self._line[i] = None
             self._dest[i] = None
