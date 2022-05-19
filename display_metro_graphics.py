@@ -42,12 +42,7 @@ class Metro_Graphics:
             self._dest[i] = metro_status['Trains'][i]['Destination']   
             self._min[i] = metro_status['Trains'][i]['Min']
     
-        self.update_time()
         self.update_display()
-
-    def update_time(self):
-        now = datetime.now()
-        self._time_text = now.strftime("%I:%M %p").lstrip("0").replace(" 0", " ")
 
     def update_display(self):
         image = Image.new("RGB", (self.display.width, self.display.height), color=WHITE)
@@ -86,7 +81,8 @@ class Metro_Graphics:
         
         
         for i in range(self.show):
-            yVal += font_height + 5 #move to new line
+            # Move to new line
+            yVal += font_height + 5 
             
             # Line
             draw.text(
