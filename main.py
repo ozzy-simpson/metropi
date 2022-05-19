@@ -15,7 +15,7 @@ import requests
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 import threading
-from display_metro_graphics2 import Metro_Graphics
+from display_metro_graphics import Metro_Graphics
 
 logging.basicConfig(level=logging.DEBUG)
 flag_t = 1
