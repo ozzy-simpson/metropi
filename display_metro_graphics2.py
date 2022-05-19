@@ -102,26 +102,35 @@ class Metro_Graphics:
         image = image.transpose(Image.ROTATE_270) 
         draw = ImageDraw.Draw(image)
 
-        # Draw the time
-        (font_width, font_height) = small_font.getsize(self._time_text)
+        # Draw the headers
+        ## Line
+        (font_width, font_height) = large_font.getsize("LN")
         draw.text(
             (0, 0),
-            self._time_text,
-            font=self.small_font,
-            fill=BLACK,
-        )
-        # Draw the directions
-        (font_width, font_height) = large_font.getsize("East")
-        draw.text(
-            (0, font_height + 5),
-            "East",
+            "LN",
             font=self.large_font,
             fill=BLACK,
         )
-        (font_width, font_height) = large_font.getsize("West")
+        ## Cars
         draw.text(
-            (0, font_height*2 + 10),
-            "West",
+            (font_width+5, 0),
+            "CAR",
+            font=self.large_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = large_font.getsize("CAR")
+        ## Destination
+        draw.text(
+            (font_width+5, 0),
+            "DEST",
+            font=self.large_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = large_font.getsize("DEST")
+        ## Minutes
+        draw.text(
+            (font_width+5, 0),
+            "MIN",
             font=self.large_font,
             fill=BLACK,
         )
