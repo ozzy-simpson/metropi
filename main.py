@@ -17,7 +17,7 @@ import traceback
 import threading
 from display_metro_graphics import Metro_Graphics
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 flag_t = 1
 
 ## Load the env variable 
