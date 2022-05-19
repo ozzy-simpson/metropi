@@ -10,6 +10,8 @@ large_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttf", 24)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+show = 4
+
 
 class Metro_Graphics:
     def __init__(self, display):
@@ -80,62 +82,36 @@ class Metro_Graphics:
             fill=BLACK,
         )
         
-        xVal = 0
-        yVal += font_height + 5
-        # Train 1
-        draw.text(
-            (xVal, yVal),
-            self._line1,
-            font=self.medium_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = medium_font.getsize(self._line1)
         
-        draw.text(
-            (destX, yVal),
-            self._dest1,
-            font=self.medium_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = medium_font.getsize(self._dest1)
+        for i in range(show):
+            yVal += font_height + 5 #move to new line
+            
+            # Line
+            draw.text(
+                (0, yVal),
+                self._line1,
+                font=self.medium_font,
+                fill=BLACK,
+            )
+            (font_width, font_height) = medium_font.getsize(self._line1)
         
-        xVal = 0
-        yVal += font_height + 5
-        # Train 2
-        draw.text(
-            (xVal, yVal),
-            self._line2,
-            font=self.medium_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = medium_font.getsize(self._line2)
+            # Destination
+            draw.text(
+                (destX, yVal),
+                self._dest1,
+                font=self.medium_font,
+                fill=BLACK,
+            )
+            (font_width, font_height) = medium_font.getsize(self._dest1)
         
-        draw.text(
-            (destX, yVal),
-            self._dest1,
-            font=self.medium_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = medium_font.getsize(self._dest1)
-        
-        xVal = 0
-        yVal += font_height + 5
-        # Train 3
-        draw.text(
-            (xVal, yVal),
-            self._line3,
-            font=self.medium_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = medium_font.getsize(self._line3)
-        
-        draw.text(
-            (destX, yVal),
-            self._dest1,
-            font=self.medium_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = medium_font.getsize(self._dest1)
+            # Minutes
+            (font_width, font_height) = medium_font.getsize(self._min1)
+            draw.text(
+                (self.display.width - font_width - 2, yVal),
+                self._min1,
+                font=self.medium_font,
+                fill=BLACK,
+            )
 
        
         self.display.displayPartBaseImage(self.display.getbuffer(image))
