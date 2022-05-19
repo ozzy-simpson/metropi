@@ -69,20 +69,20 @@ try:
     request = requests.get(api_url, request_headers).json()['Trains']
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
-          if refresh_count > 60:
-            request = requests.get(api_url, request_headers).json()['Trains']
-            refresh_count = 0
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 5:
+          #if refresh_count > 60:
+          #  request = requests.get(api_url, request_headers).json()['Trains']
+          #  refresh_count = 0
           
-          if curr_line > 2:
-            curr_line = 0
+          #if curr_line > 2:
+          #  curr_line = 0
           filtered_request = [x for x in request if x['Line'] == lines[curr_line]]
             
           gfx.display_metro(filtered_request)
           
           refresh_display = time.monotonic()
           curr_line += 1
-          refresh_count += 10
+          refresh_count += 5
 
       time.sleep(20)
                 
