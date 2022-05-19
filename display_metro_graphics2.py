@@ -34,6 +34,10 @@ class Metro_Graphics:
         self._line2 = metro_status['Trains'][1]['Line']
         self._line3 = metro_status['Trains'][2]['Line']
     
+        self._dest1 = metro_status['Trains'][0]['Destination']
+        self._dest2 = metro_status['Trains'][1]['Destination']
+        self._dest3 = metro_status['Trains'][2]['Destination']
+    
         self.update_time()
         self.update_display()
 
@@ -59,6 +63,7 @@ class Metro_Graphics:
             fill=BLACK,
         )
         xVal += font_width + 10
+        destX = xVal
         ## Destination
         draw.text(
             (xVal, yVal),
@@ -86,6 +91,14 @@ class Metro_Graphics:
         )
         (font_width, font_height) = medium_font.getsize(self._line1)
         
+        draw.text(
+            (destX, yVal),
+            self._dest1,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = medium_font.getsize(self._dest1)
+        
         xVal = 0
         yVal += font_height + 5
         # Train 2
@@ -97,6 +110,14 @@ class Metro_Graphics:
         )
         (font_width, font_height) = medium_font.getsize(self._line2)
         
+        draw.text(
+            (destX, yVal),
+            self._dest1,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = medium_font.getsize(self._dest1)
+        
         xVal = 0
         yVal += font_height + 5
         # Train 3
@@ -107,6 +128,14 @@ class Metro_Graphics:
             fill=BLACK,
         )
         (font_width, font_height) = medium_font.getsize(self._line3)
+        
+        draw.text(
+            (destX, yVal),
+            self._dest1,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = medium_font.getsize(self._dest1)
 
        
         self.display.displayPartBaseImage(self.display.getbuffer(image))
