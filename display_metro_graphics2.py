@@ -29,67 +29,7 @@ class Metro_Graphics:
         self._has_arrived = None
 
     def display_metro(self, metro_status):
-     
-          destination1_name = metro_status[0]['DestinationName']
-          if destination1_name == "Franconia-Springfield":
-            destination1_name = "Franc-Sprngfld"
-          elif destination1_name == "Largo Town Center":
-            destination1_name = "Largo Town Ctr"
-          elif destination1_name == "Vienna/Fairfax-GMU":
-            destination1_name = "Vienna/Frfx"
-          elif destination1_name == "Wiehle-Reston East":
-            destination1_name = "Wiehle-Rstn E"
-          self._destination1_name = destination1_name
-          print('Destination: ' + destination1_name)
-
-          location1_name = metro_status[0]['LocationName']
-          self.location1_name = location1_name
-          print('Current Location: ' + location1_name)
-
-          line = metro_status[0]['Line']
-          self._line = line
-          print('Line: ' + line)
-
-          arrival1_minutes = metro_status[0]['Min']
-          if arrival1_minutes.isdigit():
-              has1_arrived = False
-              arrival1_minutes = arrival1_minutes + 'min'
-          else:
-              has1_arrived = True
-
-          self._has1_arrived = has1_arrived
-          self._arrival1_minutes = arrival1_minutes
-          print('Arrival Status: ' + arrival1_minutes)
-        
-        
-     
-          destination2_name = metro_status[1]['DestinationName']
-          if destination2_name == "Franconia-Springfield":
-            destination2_name = "Franc-Sprngfld"
-          elif destination2_name == "Largo Town Center":
-            destination2_name = "Largo Town Ctr"
-          elif destination2_name == "Vienna/Fairfax-GMU":
-            destination2_name = "Vienna/Frfx"
-          elif destination2_name == "Wiehle-Reston East":
-            destination2_name = "Wiehle-Rstn E"
-          self._destination2_name = destination2_name
-          print('Destination: ' + destination2_name)
-
-          location2_name = metro_status[1]['LocationName']
-          self.location2_name = location2_name
-          print('Current Location: ' + location2_name)
-
-          arrival2_minutes = metro_status[1]['Min']
-          if arrival2_minutes.isdigit():
-              has2_arrived = False
-              arrival2_minutes = arrival2_minutes + 'min'
-          else:
-              has2_arrived = True
-
-          self._has2_arrived = has2_arrived
-          self._arrival2_minutes = arrival2_minutes
-          print('Arrival Status: ' + arrival2_minutes)
-
+    
           self.update_time()
           self.update_display()
 
