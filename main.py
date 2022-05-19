@@ -65,14 +65,14 @@ try:
     request = requests.get(api_url, request_headers).json()
     
     while True:
-      if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
+      if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
           request = requests.get(api_url, request_headers).json()
            
           gfx.display_metro(request)
           
           refresh_display = time.monotonic()
 
-      time.sleep(10)
+      time.sleep(60)
                 
 except IOError as e:
     logging.info(e)
