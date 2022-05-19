@@ -68,7 +68,7 @@ try:
       if (not refresh_display) or (time.monotonic() - refresh_display) > 10:
           request = requests.get(api_url, request_headers).json()
             
-          trains = request['Trains'][:2]
+          trains = request['Trains'][:0]
           request['Trains'] = trains
             
           gfx.display_metro(request)
