@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-libdir = 'lib'
+libdir = '/home/pi/metropi/lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
 from TP_lib import gt1151
