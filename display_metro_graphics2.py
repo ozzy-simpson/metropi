@@ -53,16 +53,7 @@ class Metro_Graphics:
             font=self.large_font,
             fill=BLACK,
         )
-        xVal += font_width + 5
-        ## Cars
-        draw.text(
-            (xVal, 0),
-            "CAR",
-            font=self.large_font,
-            fill=BLACK,
-        )
-        (font_width, font_height) = large_font.getsize("CAR")
-        xVal += font_width + 5
+        xVal += font_width + 10
         ## Destination
         draw.text(
             (xVal, 0),
@@ -70,11 +61,10 @@ class Metro_Graphics:
             font=self.large_font,
             fill=BLACK,
         )
-        (font_width, font_height) = large_font.getsize("DEST")
-        xVal += font_width + 5
         ## Minutes
+        (font_width, font_height) = large_font.getsize("MIN")
         draw.text(
-            (xVal, 0),
+            (display.width - font_width, 0),
             "MIN",
             font=self.large_font,
             fill=BLACK,
