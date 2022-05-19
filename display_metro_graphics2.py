@@ -24,14 +24,18 @@ class Metro_Graphics:
         self._destination_name = None
         self._location_name = None
         self._arrival_minutes = None
-        self._line = None
+        self._line1 = None
         self._progress = None
         self._has_arrived = None
 
     def display_metro(self, metro_status):
     
-          self.update_time()
-          self.update_display()
+        self._line1 = metro_status['Trains'][0]['Line']
+        self._line2 = metro_status['Trains'][1]['Line']
+        self._line3 = metro_status['Trains'][2]['Line']
+    
+        self.update_time()
+        self.update_display()
 
     def update_time(self):
         now = datetime.now()
@@ -43,12 +47,13 @@ class Metro_Graphics:
         draw = ImageDraw.Draw(image)
         
         xVal = 0
+        yVal = 0
 
         # Draw the headers
         ## Line
         (font_width, font_height) = large_font.getsize("LN")
         draw.text(
-            (xVal, 0),
+            (xVal, yVal),
             "LN",
             font=self.large_font,
             fill=BLACK,
@@ -56,7 +61,7 @@ class Metro_Graphics:
         xVal += font_width + 10
         ## Destination
         draw.text(
-            (xVal, 0),
+            (xVal, yVal),
             "DEST",
             font=self.large_font,
             fill=BLACK,
@@ -64,11 +69,44 @@ class Metro_Graphics:
         ## Minutes
         (font_width, font_height) = large_font.getsize("MIN")
         draw.text(
-            (self.display.height - font_width - 2, 0),
+            (self.display.height - font_width - 2, yVal),
             "MIN",
             font=self.large_font,
             fill=BLACK,
         )
+        
+        xVal = 0
+        yVal += font_height + 5
+        # Train 1
+        draw.text(
+            (xVal, yVal),
+            self._line1,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = medium_font.getsize(self._line1)
+        
+        xVal = 0
+        yVal += font_height + 5
+        # Train 2
+        draw.text(
+            (xVal, yVal),
+            self._line2,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = medium_font.getsize(self._line2)
+        
+        xVal = 0
+        yVal += font_height + 5
+        # Train 3
+        draw.text(
+            (xVal, yVal),
+            self._line3,
+            font=self.medium_font,
+            fill=BLACK,
+        )
+        (font_width, font_height) = medium_font.getsize(self._line3)
 
        
         self.display.displayPartBaseImage(self.display.getbuffer(image))
