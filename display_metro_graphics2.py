@@ -42,7 +42,7 @@ class Metro_Graphics:
         image = image.transpose(Image.ROTATE_270) 
         draw = ImageDraw.Draw(image)
         
-        xVal = 0;
+        xVal = 0
 
         # Draw the headers
         ## Line
