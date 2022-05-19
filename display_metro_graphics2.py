@@ -41,35 +41,40 @@ class Metro_Graphics:
         image = Image.new("RGB", (self.display.width, self.display.height), color=WHITE)
         image = image.transpose(Image.ROTATE_270) 
         draw = ImageDraw.Draw(image)
+        
+        xVal = 0;
 
         # Draw the headers
         ## Line
         (font_width, font_height) = large_font.getsize("LN")
         draw.text(
-            (0, 0),
+            (xVal, 0),
             "LN",
             font=self.large_font,
             fill=BLACK,
         )
+        xVal += font_width + 5
         ## Cars
         draw.text(
-            (font_width+5, 0),
+            (xVal, 0),
             "CAR",
             font=self.large_font,
             fill=BLACK,
         )
         (font_width, font_height) = large_font.getsize("CAR")
+        xVal += font_width + 5
         ## Destination
         draw.text(
-            (font_width+5, 0),
+            (xVal, 0),
             "DEST",
             font=self.large_font,
             fill=BLACK,
         )
         (font_width, font_height) = large_font.getsize("DEST")
+        xVal += font_width + 5
         ## Minutes
         draw.text(
-            (font_width+5, 0),
+            (xVal, 0),
             "MIN",
             font=self.large_font,
             fill=BLACK,
