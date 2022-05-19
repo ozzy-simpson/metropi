@@ -18,6 +18,8 @@ class Metro_Graphics:
         self.small_font = small_font
         self.medium_font = medium_font
         self.large_font = large_font
+        
+        self.show = show
 
         self.display = display
         
@@ -32,10 +34,10 @@ class Metro_Graphics:
     def display_metro(self, metro_status):
         
         # Shorten show if there are fewer trains right now!
-        if len(metro_status['Trains']) < show:
-            show = len(metro_status['Trains'])
+        if len(metro_status['Trains']) < self.show:
+            self.show = len(metro_status['Trains'])
             
-        for i in range(show):
+        for i in range(self.show):
             self._line[i] = metro_status['Trains'][i]['Line']
             self._dest[i] = metro_status['Trains'][i]['Destination']   
             self._min[i] = metro_status['Trains'][i]['Min']
@@ -83,7 +85,7 @@ class Metro_Graphics:
         )
         
         
-        for i in range(show):
+        for i in range(self.show):
             yVal += font_height + 5 #move to new line
             
             # Line
