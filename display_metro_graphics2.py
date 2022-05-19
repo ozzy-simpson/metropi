@@ -38,7 +38,9 @@ class Metro_Graphics:
     
         self._dest1 = metro_status['Trains'][0]['Destination']
         self._dest2 = metro_status['Trains'][1]['Destination']
-        self._dest3 = metro_status['Trains'][2]['Destination']
+        self._dest3 = metro_status['Trains'][2]['Destination']   
+        
+        self._min1 = metro_status['Trains'][0]['Min']
     
         self.update_time()
         self.update_display()
