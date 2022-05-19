@@ -103,26 +103,26 @@ class Metro_Graphics:
         draw = ImageDraw.Draw(image)
 
         # Draw the time
-        (font_width, font_height) = medium_font.getsize(self._time_text)
+        (font_width, font_height) = small_font.getsize(self._time_text)
         draw.text(
             (0, 0),
             self._time_text,
-            font=self.medium_font,
+            font=self.small_font,
             fill=BLACK,
         )
         # Draw the directions
-        (font_width, font_height) = medium_font.getsize("East")
+        (font_width, font_height) = large_font.getsize("East")
         draw.text(
             (0, font_height + 5),
             "East",
-            font=self.medium_font,
+            font=self.large_font,
             fill=BLACK,
         )
-        (font_width, font_height) = medium_font.getsize("West")
+        (font_width, font_height) = large_font.getsize("West")
         draw.text(
-            (0, font_height*2 + 5),
+            (0, font_height*2 + 10),
             "West",
-            font=self.medium_font,
+            font=self.large_font,
             fill=BLACK,
         )
 
