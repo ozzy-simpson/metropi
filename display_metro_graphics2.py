@@ -78,7 +78,7 @@ class Metro_Graphics:
         ## Minutes
         (font_width, font_height) = large_font.getsize("MIN")
         draw.text(
-            (self.display.height - font_width - 2, yVal),
+            (self.display.height - font_width - 5, yVal),
             "MIN",
             font=self.large_font,
             fill=BLACK,
@@ -109,7 +109,7 @@ class Metro_Graphics:
             # Minutes
             (font_width, font_height) = medium_font.getsize(self._min1)
             draw.text(
-                (self.display.height - font_width - 2, yVal),
+                (self.display.height - font_width - 5, yVal),
                 self._min1,
                 font=self.medium_font,
                 fill=BLACK,
