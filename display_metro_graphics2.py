@@ -25,9 +25,9 @@ class Metro_Graphics:
         self._dest = []
         self._min = []
         for i in range(show):
-            self._line[i] = None
-            self._dest[i] = None
-            self._min[i] = None
+            self._line.append(None)
+            self._dest.append(None)
+            self._min.append(None)
 
     def display_metro(self, metro_status):
         
