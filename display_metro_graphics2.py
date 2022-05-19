@@ -105,66 +105,24 @@ class Metro_Graphics:
         # Draw the time
         (font_width, font_height) = medium_font.getsize(self._time_text)
         draw.text(
-            (self.display.height - font_width - 5, 7),
+            (0, 0),
             self._time_text,
             font=self.medium_font,
             fill=BLACK,
         )
-
-        # Draw the line
-        (font_width, font_height) = large_font.getsize(self._line)
+        # Draw the directions
+        (font_width, font_height) = medium_font.getsize("East")
         draw.text(
-            (5, 5),
-            self._line,
-            font=self.large_font,
-            fill=BLACK,
-        )
-
-        # Draw the destination
-        (font_width, font_height) = medium_font.getsize(self._destination1_name)
-        draw.text(
-            (5, self.display.width - font_height * 4 + 2),
-            self._destination1_name,
+            (0, font_height + 5),
+            "East",
             font=self.medium_font,
             fill=BLACK,
         )
-        
-        # Draw line break
-        # draw.line([(0, self.display.height / 2), (self.display.width, self.display.height / 2)], BLACK, 1) 
-         
-        # Draw the arrival time
-        (font_width, font_height) = large_font.getsize(self._arrival1_minutes)
+        (font_width, font_height) = medium_font.getsize("West")
         draw.text(
-            (
-                self.display.height - font_width - 5,
-                self.display.width - font_height * 4,
-            ),
-            self._arrival1_minutes,
-            font=self.large_font,
-            fill=BLACK,
-        )
-
-        # Draw the destination
-        (font_width, font_height) = medium_font.getsize(self._destination2_name)
-        draw.text(
-            (5, self.display.width - font_height * 2 + 2),
-            self._destination2_name,
+            (0, font_height*2 + 5),
+            "West",
             font=self.medium_font,
-            fill=BLACK,
-        )
-        
-        # Draw line break
-        # draw.line([(0, self.display.height / 2), (self.display.width, self.display.height / 2)], BLACK, 1) 
-         
-        # Draw the arrival time
-        (font_width, font_height) = large_font.getsize(self._arrival2_minutes)
-        draw.text(
-            (
-                self.display.height - font_width - 5,
-                self.display.width - font_height * 2,
-            ),
-            self._arrival2_minutes,
-            font=self.large_font,
             fill=BLACK,
         )
 
