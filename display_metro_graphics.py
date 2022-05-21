@@ -1,6 +1,7 @@
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 import json
+import logging
 
 small_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttf", 16)
 medium_font = ImageFont.truetype("fonts/DejaVuSans.ttf", 20)
