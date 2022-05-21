@@ -41,6 +41,8 @@ class Metro_Graphics:
             self._line[i] = metro_status['Trains'][i]['Line']
             self._dest[i] = metro_status['Trains'][i]['Destination']   
             self._min[i] = metro_status['Trains'][i]['Min']
+            
+            print(self._line[i],"line train to",self._dest[i],"arriving in",self._min[i]+"min")
     
         self.update_display()
 
