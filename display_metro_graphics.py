@@ -43,6 +43,7 @@ class Metro_Graphics:
             self._min[i] = metro_status['Trains'][i]['Min']
             
             print(self._line[i],"line train to",self._dest[i],"arriving in",self._min[i]+"min")
+            logging.info(self._line[i]+" line train to "+self._dest[i]+" arriving in "+self._min[i]+"min")
     
         self.update_display()
 
