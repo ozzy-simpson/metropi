@@ -1,0 +1,16 @@
+[Unit]
+Description=MetroPi Service
+After=multi-user.target
+
+[Service]
+Type=idle
+
+User=pi
+ExecStart=/usr/bin/python3 /home/pi/metropi/main.py
+
+Restart=always
+RestartSec=0
+RuntimeMaxSec=3600
+
+[Install]
+WantedBy=multi-user.target
