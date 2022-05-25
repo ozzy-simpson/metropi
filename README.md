@@ -21,4 +21,4 @@ The display shows the following information for each train (up to 4):
 * Station codes can be found in [the following JSON](https://developer.wmata.com/docs/services/5476364f031f590f38092507/operations/5476364f031f5909e4fe3311?) from the WMATA API.
 
 ## Running on boot and restarting when it freezes
-You can use [these instructions](https://thepihut.com/blogs/raspberry-pi-tutorials/auto-starting-programs-on-the-raspberry-pi) to setup the Pi to run main.py on boot and restart it when the program crashes/freezes.
+You can use [these instructions](https://thepihut.com/blogs/raspberry-pi-tutorials/auto-starting-programs-on-the-raspberry-pi) and [metropi.service](/metropi.service) to setup the Pi to run main.py on boot and restart it when the program crashes/freezes.
