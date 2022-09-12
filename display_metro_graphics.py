@@ -33,15 +33,22 @@ class Metro_Graphics:
             self._min.append(None)
 
     def display_metro(self, metro_status):
-        
+        # Only keep trains ≥5 minutes away
+        nextTrains = []
+        for i in range(len(metro_status['Trains'])):
+            if metro_status['Trains'][i]['Min'] in ('ARR', 'BRD', '---', '') or metro_status['Trains'][i]['Min'] < 5:
+                continue
+            else:
+                nextTrains.append(metro_status['Trains'][i])
+
         # Shorten show if there are fewer trains right now!
-        if len(metro_status['Trains']) < self.show:
-            self.show = len(metro_status['Trains'])
+        if len(nextTrains) < self.show:
+            self.show = len(nextTrains['Trains'])
             
         for i in range(self.show):
-            self._line[i] = metro_status['Trains'][i]['Line']
-            self._dest[i] = metro_status['Trains'][i]['Destination']   
-            self._min[i] = metro_status['Trains'][i]['Min']
+            self._line[i] = nextTrains[i]['Line']
+            self._dest[i] = nextTrains[i]['Destination']   
+            self._min[i] = nextTrains[i]['Min']
             
             print(self._line[i],"line train to",self._dest[i],"arriving in",self._min[i]+"min")
             logging.info(self._line[i]+" line train to "+self._dest[i]+" arriving in "+self._min[i]+"min")
