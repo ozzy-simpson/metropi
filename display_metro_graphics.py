@@ -36,7 +36,7 @@ class Metro_Graphics:
         # Only keep trains ≥5 minutes away
         nextTrains = []
         for i in range(len(metro_status['Trains'])):
-            if metro_status['Trains'][i]['Min'] in ('ARR', 'BRD', '---', '') or metro_status['Trains'][i]['Min'] < 5:
+            if metro_status['Trains'][i]['Min'] in ('ARR', 'BRD', '---', '') or int(metro_status['Trains'][i]['Min']) < 5:
                 continue
             else:
                 nextTrains.append(metro_status['Trains'][i])
