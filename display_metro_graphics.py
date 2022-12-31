@@ -42,8 +42,7 @@ class Metro_Graphics:
                 nextTrains.append(metro_status['Trains'][i])
 
         # Shorten show if there are fewer trains right now!
-        if len(nextTrains) < self.show:
-            self.show = len(nextTrains['Trains'])
+        self.show = min(len(nextTrains), self.show)
             
         for i in range(self.show):
             self._line[i] = nextTrains[i]['Line']
