@@ -33,13 +33,18 @@ class Metro_Graphics:
             self._min.append(None)
 
     def display_metro(self, metro_status):
-        # Only keep trains ≥5 minutes away
+        # Separate trains if they are ≥5 minutes away
         nextTrains = []
+        soonerTrains = []
         for i in range(len(metro_status['Trains'])):
             if metro_status['Trains'][i]['Min'] in ('ARR', 'BRD', '---', '') or int(metro_status['Trains'][i]['Min']) < 5:
-                continue
+                soonerTrains.append(metro_status['Trains'][i])
             else:
                 nextTrains.append(metro_status['Trains'][i])
+        
+        # Add sooner trains if we have <4 trains ≥5 minutes away
+        if len(nextTrains) < 4:
+            nextTrains = soonerTrains[-(4 - len(nextTrains)):] + nextTrains
 
         # Shorten show if there are fewer trains right now!
         self.show = min(len(nextTrains), 4)
