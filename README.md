@@ -10,11 +10,14 @@ The display shows the following information for each train (up to 4):
 
 ## Installation
 * Create API access token on the [WMATA developer site](https://developer.wmata.com/)
+* Enable SPI and I2C in the Raspberry Pi Interface Options (`sudo raspi-config`)
 * Clone the repository on your Raspberry Pi with the following `git clone https://github.com/ozzy-simpson/metropi.git`
 * Change into the working directory of the cloned repository `cd metropi`
-* Install the required dependencies `pip3 install -r requirements.txt`
+* Create a virtual environment: `python3 -m venv venv` (or `python -m venv venv`)
+* Activate the virtual environment: `source venv/bin/activate`
+* Install the required dependencies `pip install -r requirements.txt`
 * Create a file named `.env` in your directory with the following content `METRO_API_KEY = 'YOUR_METRO_API_KEY'`
-* Run the main program `python3 main.py`
+* Run the main program `python main.py`
 
 ## Configuration
 * To change the station being displayed modify `line 56` in `main.py` with the station code you want to use.
