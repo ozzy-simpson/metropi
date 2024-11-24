@@ -6,7 +6,7 @@ After=multi-user.target
 Type=idle
 
 User=pi
-ExecStart=/usr/bin/python3 /home/pi/metropi/main.py
+ExecStart=/bin/bash -c 'source /home/pi/metropi/venv/bin/activate && /home/pi/metropi/venv/bin/python /home/pi/metropi/main.py'
 
 Restart=always
 RestartSec=0
