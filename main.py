@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 import logging
 import requests
 from PIL import Image,ImageDraw,ImageFont
-import traceback
 from display_metro_graphics import Metro_Graphics
 
 logging.basicConfig(level=logging.INFO)
@@ -20,7 +19,14 @@ logging.basicConfig(level=logging.INFO)
 load_dotenv()
 
 try:
-    logging.info("MetroPi Demo")
+    # API configuration
+    station_code = 'C04'
+    api_key = os.getenv('METRO_API_KEY')
+    api_url = f"https://api.wmata.com/StationPrediction.svc/json/GetPrediction/{station_code}"
+    request_headers = {'api_key': api_key}
+
+    # Fetch Metro data and display it once
+    request = requests.get(api_url, request_headers).json()
     
     # Initialize the display and touch panel
     epd = epd2in13_V2.EPD_2IN13_V2()
@@ -31,16 +37,7 @@ try:
     logging.info("init and Clear")
     epd.init(epd.FULL_UPDATE)
     gt.GT_Init()
-    epd.Clear(0xFF)
-
-    # API configuration
-    station_code = 'C04'
-    api_key = os.getenv('METRO_API_KEY')
-    api_url = 'https://api.wmata.com/StationPrediction.svc/json/GetPrediction/{}'.format(station_code)
-    request_headers = {'api_key': api_key}
-
-    # Fetch Metro data and display it once
-    request = requests.get(api_url, request_headers).json()
+    # epd.Clear(0xFF)
     gfx = Metro_Graphics(epd)
     gfx.display_metro(request)
 

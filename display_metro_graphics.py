@@ -1,6 +1,4 @@
-from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
-import json
 import logging
 
 small_font = ImageFont.truetype("fonts/DejaVuSans-Bold.ttf", 16)
@@ -54,8 +52,8 @@ class Metro_Graphics:
             self._dest[i] = nextTrains[i]['Destination']   
             self._min[i] = nextTrains[i]['Min']
             
-            print(self._line[i],"line train to",self._dest[i],"arriving in",self._min[i]+"min")
-            logging.info(self._line[i]+" line train to "+self._dest[i]+" arriving in "+self._min[i]+"min")
+            print(f"{self._line[i]} line train to {self._dest[i]} arriving in {self._min[i]}min")
+            logging.info(f"{self._line[i]} line train to {self._dest[i]} arriving in {self._min[i]}min")
     
         self.update_display()
 
